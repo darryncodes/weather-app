@@ -1,0 +1,9 @@
+.footer {
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.footer__link {
+  color: var(--font);
+}
