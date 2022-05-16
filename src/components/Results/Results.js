@@ -1,6 +1,8 @@
 import React from 'react';
 
-const Conditions = props => {
+const Results = props => {
+  if (props.response === null) return;
+
   let city = props.response.name;
   let temperature = Math.round(props.response.main.temp);
   let condition = props.response.weather[0].description;
@@ -17,4 +19,4 @@ const Conditions = props => {
   );
 };
 
-export default Conditions;
+export default Results;

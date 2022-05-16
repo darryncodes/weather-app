@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-import Conditions from '../Conditions/Conditions';
 import Form from '../Form/Form';
+import Results from '../Results/Results';
 
 const Forecast = () => {
-  const [response, setResponse] = useState({});
+  const [response, setResponse] = useState(null);
 
   function getForecast(enteredFormData) {
     const data = {
@@ -30,8 +30,8 @@ const Forecast = () => {
   return (
     <>
       <h2>Find current weather conditions</h2>
-      <Conditions response={response} />
       <Form onSubmitForm={getForecast} />
+      <Results response={response} />
     </>
   );
 };

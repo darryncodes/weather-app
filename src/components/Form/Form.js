@@ -18,11 +18,7 @@ const Form = props => {
   function handleSubmit(e) {
     e.preventDefault();
 
-    const enteredData = {
-      ...formData,
-    };
-
-    props.onSubmitForm(enteredData);
+    props.onSubmitForm(formData);
   }
 
   return (
@@ -31,33 +27,28 @@ const Form = props => {
         type="text"
         placeholder="Enter City"
         maxLength="50"
+        name="city"
         value={formData.city}
         onChange={handleChange}
       />
-      <label>
-        htmlFor="fahrenheit"
-        <input
-          type="radio"
-          id="fahrenheit"
-          name="unit"
-          value="imperial"
-          checked={formData.unit === 'imperial'}
-          onChange={handleChange}
-        />
-        Fahrenheit
-      </label>
-      <label>
-        htmlFor="celcius"
-        <input
-          type="radio"
-          id="celcius"
-          name="unit"
-          value="metric"
-          checked={formData.unit === 'metric'}
-          onChange={handleChange}
-        />
-        Celcius
-      </label>
+      <input
+        type="radio"
+        id="fahrenheit"
+        name="unit"
+        value="imperial"
+        checked={formData.unit === 'imperial'}
+        onChange={handleChange}
+      />
+      <label htmlFor="fahrenheit">Fahrenheit</label>
+      <input
+        type="radio"
+        id="celcius"
+        name="unit"
+        value="metric"
+        checked={formData.unit === 'metric'}
+        onChange={handleChange}
+      />
+      <label htmlFor="celcius">Celcius</label>
       <button>Get Forecast</button>
     </form>
   );
