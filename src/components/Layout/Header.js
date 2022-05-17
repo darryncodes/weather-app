@@ -1,12 +1,8 @@
 import React from 'react';
 
-// import styles from './Header.module.css';
+import './Header.module.css';
 
 const Header = () => {
-  return (
-    <header>
-      <h1>React Weather App</h1>
-    </header>
-  );
+  return <header></header>;
 };
 export default Header;

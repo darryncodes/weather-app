@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 
+import styles from './Form.module.css';
+
 const Form = props => {
-  //   let [city, setCity] = useState('');
-  //   let [unit, setUnit] = useState('metric');
-  const [formData, setFormData] = useState({ city: '', unit: 'metric' });
+  const [formData, setFormData] = useState({
+    city: '',
+    unit: 'metric',
+    isSubmitted: true,
+  });
 
   function handleChange(e) {
     const { name, value, type, checked } = e.target;
@@ -23,33 +27,40 @@ const Form = props => {
 
   return (
     <form onSubmit={handleSubmit}>
+      {/* <label htmlFor="city">Enter city</label> */}
       <input
         type="text"
-        placeholder="Enter City"
+        id="city"
         maxLength="50"
+        placeholder="Enter city"
         name="city"
         value={formData.city}
         onChange={handleChange}
+        className={styles.input}
       />
-      <input
-        type="radio"
-        id="fahrenheit"
-        name="unit"
-        value="imperial"
-        checked={formData.unit === 'imperial'}
-        onChange={handleChange}
-      />
-      <label htmlFor="fahrenheit">Fahrenheit</label>
-      <input
-        type="radio"
-        id="celcius"
-        name="unit"
-        value="metric"
-        checked={formData.unit === 'metric'}
-        onChange={handleChange}
-      />
-      <label htmlFor="celcius">Celcius</label>
-      <button>Get Forecast</button>
+      <fieldset>
+        <label htmlFor="fahrenheit">Fahrenheit</label>
+        <input
+          type="radio"
+          id="fahrenheit"
+          name="unit"
+          value="imperial"
+          checked={formData.unit === 'imperial'}
+          onChange={handleChange}
+          className={styles.radio}
+        />
+        <label htmlFor="celcius">Celcius</label>
+        <input
+          type="radio"
+          id="celcius"
+          name="unit"
+          value="metric"
+          checked={formData.unit === 'metric'}
+          onChange={handleChange}
+          className={styles.radio}
+        />
+      </fieldset>
+      <button className={styles.btn}>Get Forecast</button>
     </form>
   );
 };

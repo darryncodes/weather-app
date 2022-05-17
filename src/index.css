@@ -1,5 +1,7 @@
 :root {
-  --font: #28262c;
+  --font: rgba(255, 255, 255, 0.75);
+  --primary: #04153c;
+  --accent: #f6d382;
 }
 
 html {
@@ -20,21 +22,7 @@ html {
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-image: linear-gradient(
-    to right top,
-    #7cc6fe,
-    #6dbefd,
-    #5cb7fc,
-    #4baffb,
-    #36a7fa,
-    #3dacfa,
-    #45b2fa,
-    #4eb7f9,
-    #76caf9,
-    #9ddbf9,
-    #c4ecfa,
-    #ebfbff
-  );
+  background-color: var(--primary);
   color: var(--font);
   display: flex;
   flex-direction: column;
