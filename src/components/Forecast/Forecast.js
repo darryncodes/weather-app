@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import Form from '../Form/Form';
 import Results from '../Results/Results';
-import './Forecast.mdule.css';
+import styles from './Forecast.mdule.css';
 
 const Forecast = () => {
   const [response, setResponse] = useState(null);
@@ -12,11 +12,24 @@ const Forecast = () => {
     isSubmitted: false,
   });
 
+  let [error, setError] = useState(false);
+  let [loading, setLoading] = useState(false);
+
   function getForecast(enteredFormData) {
     const data = {
       ...enteredFormData,
     };
     setEnteredData(data);
+
+    if (data.city.length === 0) {
+      return setError(true);
+    }
+
+    // Clear state in preparation for new data
+    setError(false);
+    setResponse(null);
+    setLoading(true);
+
     let uriEncodedCity = encodeURIComponent(data.city);
     fetch(
       `https://community-open-weather-map.p.rapidapi.com/weather?units=${data.unit}&q=${uriEncodedCity}`,
@@ -29,11 +42,20 @@ const Forecast = () => {
       }
     )
       .then(response => response.json())
-      .then(response => setResponse(response));
-    //   .catch(err => console.error(err));
+      .then(response => {
+        if (response.cod !== 200) {
+          throw new Error();
+        }
+        setResponse(response);
+        setLoading(false);
+      })
+      .catch(err => {
+        setError(true);
+        setLoading(false);
+        console.log(err.message);
+      });
   }
-
-  if (enteredData.isSubmitted === true) {
+  if (enteredData.isSubmitted === true && enteredData.city.length !== 0) {
     return (
       <>
         <h1>
@@ -51,6 +73,8 @@ const Forecast = () => {
         <br /> in your city
       </h1>
       <Form onSubmitForm={getForecast} />
+      {error && <small>Please enter a valid city.</small>}
+      {loading && <div className={styles.loader}>Loading...</div>}
     </>
   );
 };
