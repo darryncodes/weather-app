@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import Form from '../Form/Form';
 import Results from '../Results/Results';
-import styles from './Forecast.mdule.css';
+import styles from './Forecast.module.css';
 
 const Forecast = () => {
   const [response, setResponse] = useState(null);
@@ -55,7 +55,12 @@ const Forecast = () => {
         console.log(err.message);
       });
   }
-  if (enteredData.isSubmitted === true && enteredData.city.length !== 0) {
+  console.log(response);
+  if (
+    enteredData.isSubmitted === true &&
+    enteredData.city.length !== 0 &&
+    response !== null
+  ) {
     return (
       <>
         <h1>
@@ -63,6 +68,7 @@ const Forecast = () => {
           <br /> in your city
         </h1>
         <Results response={response} />
+        {loading && <div className={styles.loader}></div>}
       </>
     );
   }
@@ -74,9 +80,21 @@ const Forecast = () => {
       </h1>
       <Form onSubmitForm={getForecast} />
       {error && <small>Please enter a valid city.</small>}
-      {loading && <div className={styles.loader}>Loading...</div>}
     </>
   );
+
+  //   return (
+  //     <>
+  //       <h1>
+  //         Discover the <span>weather</span>
+  //         <br /> in your city
+  //       </h1>
+  //       <Results response={response} />
+  //       <Form onSubmitForm={getForecast} />
+  //       {error && <small>Please enter a valid city.</small>}
+  //       {loading && <div className={styles.loader}></div>}
+  //     </>
+  //   );
 };
 
 export default Forecast;
