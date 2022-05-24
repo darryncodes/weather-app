@@ -4,10 +4,12 @@ form {
   backdrop-filter: blur(7.6px);
   -webkit-backdrop-filter: blur(7.6px);
   padding: 0 2rem;
+  max-width: 21rem;
   min-height: 16rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   position: relative;
 }
 
