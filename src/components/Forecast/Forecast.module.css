@@ -30,15 +30,26 @@ small {
 }
 
 .loader {
-  border: 16px solid #f3f3f3;
-  border-top: 16px solid rgb(90, 89, 89);
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 2s linear infinite;
-  margin: 10px auto;
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-@keyframes spin {
+.loader:after {
+  content: ' ';
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid var(--accent);
+  border-color: var(--accent) transparent var(--accent) transparent;
+  animation: loader 1.2s linear infinite;
+}
+@keyframes loader {
   0% {
     transform: rotate(0deg);
   }
