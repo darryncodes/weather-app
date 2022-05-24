@@ -55,5 +55,4 @@ TBC
 ## Author
 
 - Work in progress portfolio site - [@darryncodes](https://www.darryncodes.co.uk/)
-- Frontend Mentor - [@darryncodes](https://www.frontendmentor.io/profile/darryncodes)
 - Twitter - [@darryncodes](https://twitter.com/darryncodes)
