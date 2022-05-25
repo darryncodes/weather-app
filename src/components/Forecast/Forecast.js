@@ -63,10 +63,6 @@ const Forecast = () => {
   ) {
     return (
       <>
-        <h1>
-          Discover the <span>weather</span>
-          <br /> in your city
-        </h1>
         <Results response={response} />
         {loading && <div className={styles.loader}></div>}
       </>
@@ -74,27 +70,10 @@ const Forecast = () => {
   }
   return (
     <>
-      <h1>
-        Discover the <span>weather</span>
-        <br /> in your city
-      </h1>
       <Form onSubmitForm={getForecast} />
       {error && <small>Please enter a valid city.</small>}
     </>
   );
-
-  //   return (
-  //     <>
-  //       <h1>
-  //         Discover the <span>weather</span>
-  //         <br /> in your city
-  //       </h1>
-  //       <Results response={response} />
-  //       <Form onSubmitForm={getForecast} />
-  //       {error && <small>Please enter a valid city.</small>}
-  //       {loading && <div className={styles.loader}></div>}
-  //     </>
-  //   );
 };
 
 export default Forecast;
