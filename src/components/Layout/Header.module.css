@@ -2,10 +2,14 @@ header {
   margin: 2rem 0;
 }
 
+img {
+  max-width: 18rem;
+  margin: 0 auto;
+}
+
 h1 {
   font-weight: 400;
   text-align: center;
-  margin-bottom: 3rem;
 }
 
 span {

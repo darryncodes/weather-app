@@ -55,7 +55,6 @@ const Forecast = () => {
         console.log(err.message);
       });
   }
-  console.log(response);
   if (
     enteredData.isSubmitted === true &&
     enteredData.city.length !== 0 &&
