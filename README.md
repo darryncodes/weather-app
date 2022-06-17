@@ -21,7 +21,7 @@ TBC
 ### Links
 
 - [GitHub repo](https://github.com/darryncodes/weather-app)
-- [Solution URL](https://darryncodes.github.io/weather-app/)
+- [Live URL](https://darryncodes.github.io/weather-app/)
 
 ## My process
 
